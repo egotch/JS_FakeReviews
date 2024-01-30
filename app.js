@@ -51,25 +51,31 @@ window.addEventListener('DOMContentLoaded', function() {
 // show person based on item
 function showPerson(idx_person) {
 
-    const item = reviews[idx_person];
-    img.src             = item.img;
-    author.textContent  = item.author;
-    job.textContent     = item.job;
-    info.textContent    = item.text;
+	const item = reviews[idx_person];
+	img.src             = item.img;
+  	author.textContent  = item.author;
+  	job.textContent     = item.job;
+  	info.textContent    = item.text;
 
 }
 
 // Show next person
 nextBtn.addEventListener('click', function() {
-    currItem ++;
-    if (currItem > reviews.length-1) currItem=0
-    showPerson(currItem);
+  	currItem ++;
+  	if (currItem > reviews.length-1) currItem=0
+  	showPerson(currItem);
 
 })
 
 // Show previous person
 prevBtn.addEventListener('click', function() {
-    currItem --;
-    if (currItem < 0) currItem = reviews.length-1;
-    showPerson(currItem);
+  	currItem --;
+  	if (currItem < 0) currItem = reviews.length-1;
+  	showPerson(currItem);
+})
+
+// Show random person
+randomBtn.addEventListener('click', function() {
+	currItem = Math.floor(Math.random() * reviews.length);
+	showPerson(currItem);
 })
